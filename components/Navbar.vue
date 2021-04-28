@@ -1,6 +1,6 @@
 <template>
     <div>
-        <b-navbar toggleable="lg" type="light" variant="light">
+        <b-navbar toggleable="lg" type="light" variant="light" v-if="loggedIn">
             <b-container>
                 <b-navbar-brand href="#">Django Nuxt App</b-navbar-brand>
                 <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
@@ -18,7 +18,7 @@
                                 My Account
                             </template>
                             <b-dropdown-item href="#">Profile</b-dropdown-item>
-                            <b-dropdown-item href="#">Sign Out</b-dropdown-item>
+                            <b-dropdown-item href="#" @click="logout">Sign Out</b-dropdown-item>
                         </b-nav-item-dropdown>
                     </b-navbar-nav>
                 </b-collapse>
@@ -26,3 +26,26 @@
         </b-navbar>
     </div>
 </template>
+
+<script>
+    import {
+        mapState
+    } from 'vuex'
+
+    export default {
+        data() {
+            return {
+
+            }
+        },
+        methods: {
+            async logout() {
+                await this.$auth.logout()
+                this.$router.push('/login')
+            }
+        },
+        computed: {
+            ...mapState('auth', ['loggedIn'])
+        }
+    }
+</script>

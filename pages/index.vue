@@ -9,7 +9,18 @@
 </template>
 
 <script>
+    import {
+        mapState
+    } from 'vuex'
     export default {
+        middleware: ['auth'],
+        data() {
+            return {
 
+            }
+        },
+        computed: {
+            ...mapState('auth', ['loggedIn'])
+        },
     }
 </script>

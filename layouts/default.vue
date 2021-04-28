@@ -6,9 +6,20 @@
 </template>
 <script>
     import Navbar from '~/components/Navbar'
+    import {
+        mapState
+    } from 'vuex'
     export default {
         components: {
             Navbar
+        },
+        data() {
+            return {
+
+            }
+        },
+        computed: {
+            ...mapState('auth', ['loggedIn'])
         }
     }
 </script>

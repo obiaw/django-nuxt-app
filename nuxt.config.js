@@ -49,22 +49,19 @@ module.exports = {
         token: {
           property: 'token',
           required: true,
-          type: 'Token'
+          type: 'Bearer'
         },
         tokenName: 'Authorization',
-        user: {
-          property: 'user',
-          autoFetch: true
-        },
         endpoints: {
           login: { url: 'auth/', method: 'post', propertyName: 'token' },
-          user: { url: 'users/', method: 'get', propertyName: 'user', 
+          user: { url: 'auth/me/', method: 'get', propertyName: 'user', 
           credentials: true, auth: this.token },
           logout: false
         }
       }
-    }
+    },
   },
+
   plugins: ['~/plugins/bootstrap.js',],
 }
 
