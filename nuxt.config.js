@@ -38,8 +38,15 @@ module.exports = {
   modules: [
     '@nuxtjs/axios',
     '@nuxtjs/auth',
-    'bootstrap-vue/nuxt'
+    'bootstrap-vue/nuxt',
+    '@nuxtjs/moment',
+
   ],
+  moment: {
+    timezone: true,
+    defaultTimezone: 'Africa/Kampala'
+
+  },
   axios: {
     baseURL: 'http://127.0.0.1:8000/api/'
   },

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <b-navbar toggleable="lg" type="light" variant="light" v-if="loggedIn">
+        <b-navbar toggleable="lg" class="p-3" type="dark" variant="secondary" v-if="isAuthenticated">
             <b-container>
                 <b-navbar-brand href="#">Django Nuxt App</b-navbar-brand>
                 <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
@@ -15,9 +15,8 @@
                     <b-navbar-nav class="ml-auto">
                         <b-nav-item-dropdown right>
                             <template #button-content>
-                                My Account
-                            </template>
-                            <b-dropdown-item href="#">Profile</b-dropdown-item>
+                                Hi <span class="text-capitalize"> {{loggedInUser.username}} </span> </template>
+                            <b-dropdown-item href="/profile">Profile</b-dropdown-item>
                             <b-dropdown-item href="#" @click="logout">Sign Out</b-dropdown-item>
                         </b-nav-item-dropdown>
                     </b-navbar-nav>
@@ -29,14 +28,12 @@
 
 <script>
     import {
-        mapState
+        mapGetters
     } from 'vuex'
 
     export default {
         data() {
-            return {
-
-            }
+            return {}
         },
         methods: {
             async logout() {
@@ -45,7 +42,7 @@
             }
         },
         computed: {
-            ...mapState('auth', ['loggedIn'])
+            ...mapGetters(['isAuthenticated', 'loggedInUser'])
         }
     }
 </script>

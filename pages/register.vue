@@ -23,7 +23,7 @@
                     <b-form-group id="input-group-password" label-for="input-password">
                         <b-form-input id="input-password" v-model="user.password" type="password" placeholder="Password" required></b-form-input>
                     </b-form-group>
-                    <b-button type="submit" class="btn-block" variant="outline-primary">Register</b-button>
+                    <b-button type="submit" class="btn-block" size="md" variant="outline-primary">Register</b-button>
                     <p class="p-2">Already have an account? <a href="/login">Login</a></p>
                 </b-form>
             </b-col>
@@ -33,6 +33,10 @@
 
 <script>
     export default {
+        middleware: ['guest'],
+        layout(context) {
+            return 'auth-layout'
+        },
         data() {
             return {
                 user: {

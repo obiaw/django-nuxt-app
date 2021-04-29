@@ -1,8 +1,9 @@
 <template>
-    <b-container>
+    <b-container class="bv-example-row mt-5">
         <b-row>
-            <b-col>
-                <h2>Welcome to Django Nuxt App</h2>
+            <b-col cols="12">
+                <h2 v-if="isAuthenticated">Welcome back <span class="text-primary text-capitalize">{{loggedInUser.username}}!</span>
+                </h2>
             </b-col>
         </b-row>
     </b-container>
@@ -10,17 +11,15 @@
 
 <script>
     import {
-        mapState
+        mapGetters
     } from 'vuex'
     export default {
         middleware: ['auth'],
         data() {
-            return {
-
-            }
+            return {}
         },
         computed: {
-            ...mapState('auth', ['loggedIn'])
+            ...mapGetters(['isAuthenticated', 'loggedInUser'])
         },
     }
 </script>
