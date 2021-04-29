@@ -1,7 +1,7 @@
 <template>
     <div>
         <b-container class="bv-example-row">
-            <b-row class="mt-5">
+            <b-row class="vh-100" align-v="center">
                 <b-col cols="4" class="card p-2 mx-auto">
                     <h3 class="text-center">
                         Welcome back!
