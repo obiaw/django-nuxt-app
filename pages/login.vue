@@ -39,15 +39,26 @@
         },
         methods: {
             async signin() {
-                try {
-                    await this.$auth.loginWith('local', {
-                        data: this.user
-                    })
+                await this.$auth.loginWith('local', {
+                    data: this.user
+                }).then(res => {
+                    const user = res.data.user
+                    this.$auth.setUser(user)
+                    this.$auth.$storage.setUniversal('user', user, true)
                     this.$router.push('/')
-                } catch (e) {
+                }).catch(err => {
                     this.error = "Error, Invalid credentials, check and try again!"
                     this.$router.push('/login')
-                }
+                })
+                // try {
+                //     await this.$auth.loginWith('local', {
+                //         data: this.user
+                //     })
+                //     this.$router.push('/')
+                // } catch (e) {
+                //     this.error = "Error, Invalid credentials, check and try again!"
+                //     this.$router.push('/login')
+                // }
             }
         },
     }
