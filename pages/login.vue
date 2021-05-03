@@ -50,15 +50,6 @@
                     this.error = "Error, Invalid credentials, check and try again!"
                     this.$router.push('/login')
                 })
-                // try {
-                //     await this.$auth.loginWith('local', {
-                //         data: this.user
-                //     })
-                //     this.$router.push('/')
-                // } catch (e) {
-                //     this.error = "Error, Invalid credentials, check and try again!"
-                //     this.$router.push('/login')
-                // }
             }
         },
     }

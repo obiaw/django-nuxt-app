@@ -1,5 +1,5 @@
 <template>
-    <b-card :title="recipe.name" :img-src="recipe.picture" img-alt="Image" img-top tag="article" class="mb-2">
+    <b-card :title="recipe.name" :img-src="recipe.picture" img-alt="recipe.name" img-top class="mb-2">
         <b-card-text>
             <b>Ingredients </b>
             <p>{{recipe.ingredients}} </p>
@@ -17,3 +17,13 @@
         props: ['recipe', 'onDelete']
     }
 </script>
+
+<style scoped>
+    .card-img-top {
+        height: 230px !important;
+    }
+
+    .card-title {
+        text-transform: capitalize;
+    }
+</style>

@@ -1,17 +1,19 @@
 <template>
-    <b-container class="mt-5">
+    <b-container class="mt-2">
         <b-row>
-            <b-col cols="12">
-                <h2>Welcome to La Recipes</h2>
-                <hr />
+            <b-col cols="8">
+                <h2>Welcome to La Recipes </h2>
+            </b-col>
+            <b-col cols=4>
+                <a href="recipes/add" class="btn btn-outline-primary mr-0">
+                    Add Recipe
+                </a>
             </b-col>
         </b-row>
-        <b-row class="mt-1">
-            <span v-if="loading">Fetching Recipes...
-                <b-icon icon="three-dots" animation="cylon" font-scale="2"></b-icon>
-            </span>
+        <b-row class="mt-2 mb-5">
+            <b-icon v-if="loading" icon="three-dots" class="mx-auto" variant="success" animation="cylon" font-scale="4"></b-icon>
             <template v-for="recipe in recipes">
-                <b-col cols="4" :key="recipe.id">
+                <b-col cols="4" :key="recipe.id" class="mb-5">
                     <recipe-card :onDelete="deleteRecipe" :recipe="recipe"></recipe-card>
                 </b-col>
             </template>
@@ -53,11 +55,13 @@
                         this.recipes = res.data.results
                     }).catch(err => {
                         this.loading = false
+                        this.recipes = []
                         console.log('error', err)
                     })
                 } catch (e) {
                     console.log(e)
                     this.loading = false
+                    this.recipes = []
                 }
             },
         },
