@@ -111,7 +111,6 @@
                 }
             },
             changeButtonText() {
-                this.loading = !this.loading
                 this.button.text = this.loading ? "Adding Recipe..." : "Add Recipe"
             }
         },
