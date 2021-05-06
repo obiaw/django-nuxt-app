@@ -43,8 +43,13 @@
         },
 
         methods: {
-            deleteRecipe(recipe_id) {
-                console.log('deleted')
+            async deleteRecipe(recipe_id) {
+                try {
+                    await this.$axios.delete(`recipes/${recipe_id}/`)
+                    this.getRecipes()
+                } catch (error) {
+                    console.log(error)
+                }
             },
             getRecipes() {
                 try {

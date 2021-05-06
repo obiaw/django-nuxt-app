@@ -5,7 +5,7 @@
             <p>{{recipe.ingredients}} </p>
         </b-card-text>
         <nuxt-link :to="`/recipes/${recipe.id}/`" class="btn btn-outline-secondary btn-sm">Read More</nuxt-link>
-        <nuxt-link :to="`/recipes/${recipe.id}/`" class="btn btn-outline-success btn-sm">Update</nuxt-link>
+        <nuxt-link :to="`/recipes/${recipe.id}/edit/`" class="btn btn-outline-success btn-sm">Update</nuxt-link>
         <b-button type="button" size="sm" variant="outline-danger" @click="onDelete(recipe.id)">
             Remove
         </b-button>
